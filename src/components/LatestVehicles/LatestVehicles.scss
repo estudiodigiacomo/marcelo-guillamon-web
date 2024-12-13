@@ -1,0 +1,167 @@
+@import "../../utils/variables.scss";
+
+.title-latest{
+    font-family: $font-primary;
+    color: $font_color-title;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.5rem 0rem 0rem 1.3rem;
+}
+
+.latest-vehicles {
+    margin: 20px 20px;
+    text-align: center;
+    font-family: $font-primary;
+  
+    .vehicle-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+  
+      .vehicle-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 100%;
+        background-color: $silver_gray;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+        .vehicle-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+  
+        .vehicle-details {
+          padding: 15px;
+          text-align: left;
+  
+          h3 {
+            margin-bottom: 7px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $font_color-title;
+          }
+  
+          .vehicle-type {
+            font-size: 1rem;
+            color: $font_color;
+            margin: 5px 0px 10px 0px;
+          }
+  
+          .vehicle-version {
+            font-size: 1rem;
+            color: $font_color;
+            margin: 5px 0px 10px 0px;
+            font-weight: 500;
+          }
+  
+          .vehicle-specs {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            color: $font_color;
+          }
+  
+          .vehicle-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $blue_ford;
+            text-align: center;
+            margin: 10px 0;
+          }
+
+          .divider {
+            border: none;
+            border-top: 1px solid $font_color;
+            margin: 10px 0;
+          }
+  
+          .detail-button {
+            background-color: $blue_ford;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+  
+            &:hover {
+              background-color: #1558b3;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .title-latest{
+        font-family: $font-primary;
+        font-weight: 600;
+        margin: 1.5rem 0rem 0rem 1.3rem;
+    }
+    
+    .latest-vehicles {
+      .vehicle-cards {
+        .vehicle-card {
+          width: 48%;
+          height: auto;
+  
+          .vehicle-details {
+            h3 {
+              font-size: 1.2rem;
+            }
+  
+            .vehicle-specs {
+              font-size: 0.9rem;
+            }
+  
+            .vehicle-price {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .title-latest{
+        font-family: $font-primary;
+        font-weight: 600;
+        margin: 2rem 0rem 0rem 4rem;
+    }
+    
+    .latest-vehicles {
+      .vehicle-cards {
+        .vehicle-card {
+          width: 22%;
+  
+          .vehicle-image {
+            height: 180px;
+          }
+  
+          .vehicle-details {
+            h3 {
+              font-size: 1.4rem;
+            }
+  
+            .vehicle-price {
+              font-size: 1.4rem;
+            }
+  
+            .detail-button {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  

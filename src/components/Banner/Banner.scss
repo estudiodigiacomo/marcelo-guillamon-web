@@ -1,0 +1,14 @@
+@import "../../utils/variables.scss";
+
+.banner-home {
+  width: 100%;
+  position: relative;
+  height: auto;
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+

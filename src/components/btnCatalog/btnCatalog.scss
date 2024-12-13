@@ -1,0 +1,41 @@
+@import "../../utils/variables.scss";
+
+.content-button-catalog{
+    text-align: center;
+    .catalog-button {
+        background-color: $blue_ford;
+        font-family: $font-primary;
+        font-weight: 500;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        width: 70%;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 1rem;
+
+        &:hover {
+        background-color: #1558b3;
+        }
+    }
+}
+
+  @media (min-width: 1024px) {
+    .content-button-catalog{
+        .catalog-button {
+            background-color: $blue_ford;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 30%;
+            border-radius: 5px;
+            font-size: 1.3rem;
+            cursor: pointer;
+        
+            &:hover {
+            background-color: #1558b3;
+            }
+        }
+    }
+}

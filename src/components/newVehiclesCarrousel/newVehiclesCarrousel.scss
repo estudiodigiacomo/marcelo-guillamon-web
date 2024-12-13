@@ -1,0 +1,81 @@
+@import "../../utils/variables.scss";
+
+.carousel-container {
+    width: 100%; // Ocupa el ancho completo en móviles
+    max-width: 100%; // Asegura que no exceda el 100% del ancho
+    margin: 0 auto; // Centra horizontalmente
+    overflow: hidden;
+  
+    .carousel-inner {
+      width: 100%;
+      height: 250px; // Altura fija para pantallas móviles
+      overflow: hidden;
+    }
+  
+    .carousel-item {
+      height: 100%; // Cada diapositiva ocupa todo el alto
+    }
+  
+    .carousel-image {
+      width: 100%; // Ocupa todo el ancho del carrusel
+      height: 100%; // Ocupa todo el alto del carrusel
+      object-fit: cover; // Ajusta las imágenes dentro del contenedor sin distorsionarlas
+    }
+  
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.5); // Fondo oscuro semitransparente
+      border-radius: 50%;
+    }
+  
+    @media (min-width: 769px) {
+      width: 70%; // Ocupa el 70% de la pantalla en pantallas grandes
+      height: 400px; // Ajusta la altura para pantallas grandes
+  
+      .carousel-inner {
+        height: 400px; // Asegura la misma altura en pantallas grandes
+      }
+    }
+  }
+.content-button-okm{
+    text-align: center;
+    margin: 1rem;
+    .contact-button-okm {
+        background-color: $blue_ford;
+        font-family: $font-primary;
+        font-weight: 500;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        width: 70%;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 1rem;
+
+        &:hover {
+        background-color: #1558b3;
+        }
+    }
+}
+
+  @media (min-width: 1024px) {
+    .content-button-okm{
+        margin: 2rem;
+        .contact-button-okm {
+            background-color: $blue_ford;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 30%;
+            border-radius: 5px;
+            font-size: 1.3rem;
+            cursor: pointer;
+        
+            &:hover {
+            background-color: #1558b3;
+            }
+        }
+    }
+}
+  
