@@ -1,12 +1,20 @@
 @import "../../utils/variables.scss";
 
 // Mobile First
+.title-notice-preview{
+  font-family: $font-primary;
+  color: $font_color-title;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0rem 0rem 1.3rem;
+}
+
 .notice-preview {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  margin: 3rem 1rem;
+  margin: 0.5rem 1rem;
 }
 
 .content-preview {
@@ -35,7 +43,7 @@
     .title-preview {
       font-size: 1.2rem;
       margin-bottom: 0.4rem;
-      color: $silver_gray;
+      color: $font_color;
       font-family: $font-primary;
       font-weight: 900;
     }
@@ -50,6 +58,12 @@
 
 /* Tablets (≥ 577px) */
 @media (min-width: 577px) {
+  .title-notice-preview{
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0rem 0rem 1.3rem;
+}
   .content-preview {
     flex-direction: row;
     align-items: center;
@@ -74,12 +88,19 @@
 
 // Pantallas grandes (≥ 1024px)
 @media (min-width: 1024px) {
+  .title-notice-preview{
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 2rem 0rem 0rem 4rem;
+}
   .content-preview {
     flex: 0 0 calc(25% - 1rem);
   }
 
   .notice-preview {
     justify-content: space-between;
+    margin: 0rem 4rem 0rem 4rem;
 
     .content-preview{
       .content-text {

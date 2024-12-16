@@ -1,39 +1,39 @@
 @import "../../utils/variables.scss";
 
 .carousel-container {
-    width: 100%; // Ocupa el ancho completo en móviles
-    max-width: 100%; // Asegura que no exceda el 100% del ancho
-    margin: 0 auto; // Centra horizontalmente
+    width: 100%; 
+    max-width: 100%;
+    margin: 0 auto; 
     overflow: hidden;
   
     .carousel-inner {
       width: 100%;
-      height: 250px; // Altura fija para pantallas móviles
+      height: 250px;
       overflow: hidden;
     }
   
     .carousel-item {
-      height: 100%; // Cada diapositiva ocupa todo el alto
+      height: 100%;
     }
   
     .carousel-image {
-      width: 100%; // Ocupa todo el ancho del carrusel
-      height: 100%; // Ocupa todo el alto del carrusel
-      object-fit: cover; // Ajusta las imágenes dentro del contenedor sin distorsionarlas
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
     }
   
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      background-color: rgba(0, 0, 0, 0.5); // Fondo oscuro semitransparente
+      background-color: rgba(0, 0, 0, 0.5); 
       border-radius: 50%;
     }
   
     @media (min-width: 769px) {
-      width: 70%; // Ocupa el 70% de la pantalla en pantallas grandes
-      height: 400px; // Ajusta la altura para pantallas grandes
+      width: 70%; 
+      height: 400px; 
   
       .carousel-inner {
-        height: 400px; // Asegura la misma altura en pantallas grandes
+        height: 400px; 
       }
     }
   }

@@ -1,5 +1,5 @@
 import { db } from '../config/firebaseConfig.js';
-import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, serverTimestamp, query, orderBy, limit  } from 'firebase/firestore';
+import { collection, addDoc, getDoc, getDocs, doc, updateDoc, deleteDoc, serverTimestamp, query, orderBy, limit  } from 'firebase/firestore';
 
 const vehiclesCollection = collection(db, 'vehicles');
 
@@ -55,4 +55,22 @@ export const updateVehicle = async (id, updatedData) => {
 export const deleteVehicle = async (id) => {
   const vehicleDoc = doc(db, 'vehicles', id);
   await deleteDoc(vehicleDoc);
+};
+
+export const getVehicleById = async (id) => {
+  try {
+    console.log("Buscando vehículo con ID:", id);
+    const vehicleDoc = doc(db, 'vehicles', id); 
+    const snapshot = await getDoc(vehicleDoc); 
+    if (snapshot.exists()) {
+      console.log("Vehículo encontrado:", snapshot.data()); 
+      return { id: snapshot.id, ...snapshot.data() };
+    } else {
+      console.log("El vehículo no existe en Firebase.");
+      throw new Error('El vehículo no existe');
+    }
+  } catch (error) {
+    console.error('Error fetching vehicle by ID:', error);
+    throw error;
+  }
 };

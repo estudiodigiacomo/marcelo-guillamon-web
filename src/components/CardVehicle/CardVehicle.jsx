@@ -1,44 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import { getLatestVehicles } from '../../service/vehiclesService.js';
-import './LatestVehicles.scss';
+import { getVehicles } from '../../service/vehiclesService.js';
+import { useNavigate } from 'react-router-dom';
+import './CardVehicle.scss';
 
-const LatestVehicles = () => {
+const CardVehicle = () => {
   const [vehicles, setVehicles] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para el spinner
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Hook para navegación
 
   useEffect(() => {
-    const fetchLatestVehicles = async () => {
+    const fetchVehicles = async () => {
       try {
-        const latestVehicles = await getLatestVehicles();
-        setVehicles(latestVehicles);
+        const vehiclesData = await getVehicles();
+        setVehicles(vehiclesData);
       } catch (error) {
-        console.error('Error fetching latest vehicles:', error);
+        console.error('Error fetching vehicles:', error);
       } finally {
-        setLoading(false); // Detenemos el spinner
+        setLoading(false);
       }
     };
-    fetchLatestVehicles();
+    fetchVehicles();
   }, []);
+
+  const handleDetail = (id) => {
+    navigate(`/catalogo/${id}`); // Redirige a la ruta de detalle
+  };
 
   return (
     <>
-      <h2 className='title-latest'>Vehículos Destacados</h2>
-      <div className="latest-vehicles">
+      <h2 className="title-catalog">Catálogo de Vehículos</h2>
+      <div className="vehicle-cata">
         {loading ? (
           <div className="spinner"></div>
         ) : vehicles.length === 0 ? (
-          <p>No vehicles available.</p>
+          <p>No hay vehículos disponibles.</p>
         ) : (
           <div className="vehicle-cards">
             {vehicles.map((vehicle) => (
               <div key={vehicle.id} className="vehicle-card">
                 <img
-                  src={vehicle.imagenes && vehicle.imagenes[0] ? vehicle.imagenes[0] : 'placeholder.jpg'}
+                  src={
+                    vehicle.imagenes && vehicle.imagenes[0]
+                      ? vehicle.imagenes[0]
+                      : 'placeholder.jpg'
+                  }
                   alt={`${vehicle.brand} ${vehicle.model}`}
                   className="vehicle-image"
                 />
                 <div className="vehicle-details">
-                  <h3>{vehicle.brand} {vehicle.model}</h3>
+                  <h3>
+                    {vehicle.brand} {vehicle.model}
+                  </h3>
                   <p className="vehicle-version">{vehicle.version}</p>
                   <span className="vehicle-type">{vehicle.type}</span>
                   <hr className="divider" />
@@ -51,7 +63,10 @@ const LatestVehicles = () => {
                   <p className="vehicle-price">
                     {vehicle.currency} {vehicle.price.toLocaleString()}
                   </p>
-                  <button onClick={() => handleDetail(vehicle.id)} className="detail-button">
+                  <button
+                    onClick={() => handleDetail(vehicle.id)}
+                    className="detail-button"
+                  >
                     Ver Ficha
                   </button>
                 </div>
@@ -64,9 +79,4 @@ const LatestVehicles = () => {
   );
 };
 
-// Placeholder function for button click
-const handleDetail = (id) => {
-  console.log(`Go to details of vehicle ID: ${id}`);
-};
-
-export default LatestVehicles;
+export default CardVehicle;

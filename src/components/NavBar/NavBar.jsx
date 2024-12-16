@@ -29,7 +29,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="navbar-logo">
           <Link to="/" onClick={() => setIsOpen(false)}>
-            <img src="src/assets/MG Marcelo Guillamón.png" alt="logo" />
+            <img src="https://storage.googleapis.com/guillamon-img/MG%20Marcelo%20Guillam%C3%B3n.png" alt="logo" />
           </Link>
         </div>
 
@@ -38,7 +38,7 @@ const Navbar = () => {
           <Link to="/nosotros" onClick={() => setIsOpen(false)}>
             Nosotros
           </Link>
-          <Link to="/vehiculos" onClick={() => setIsOpen(false)}>
+          <Link to="/catalogo" onClick={() => setIsOpen(false)}>
             Vehículos
           </Link>
           <Link to="/noticias" onClick={() => setIsOpen(false)}>

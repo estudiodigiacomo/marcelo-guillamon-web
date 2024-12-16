@@ -1,0 +1,187 @@
+@import "../../utils/variables.scss";
+
+.vehicle-details-detall {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    font-family: $font-primary;
+  
+    .vehicle-content-detail {
+      text-align: left;
+  
+      .header {
+        h1 {
+          font-size: 1.5rem;
+          margin: 0;
+          font-weight: bold;
+          color:$font_color-title;
+        }
+  
+        .version {
+          color: $font_color;
+          font-size: 1rem;
+          margin-top: 0.2rem;
+        }
+      }
+  
+      .specifications {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0;
+  
+        div {
+          p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+  
+            strong {
+              font-weight: bold;
+              color: $font_color-title;
+            }
+          }
+        }
+      }
+  
+      .price-section {
+        text-align: center;
+        margin: 1rem 0;
+        .price-lines {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+    
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              top: -10px;
+              left: 0;
+              width: 100%;
+              height: 1px;
+              background-color: $font_color-title;
+            }
+    
+            &::after {
+              top: auto;
+              bottom: -10px;
+            }
+          }
+  
+        .price {
+          font-size: 1rem;
+          font-weight: bold;
+          margin: 0;
+          color: $font_color;
+        }
+  
+        .amount {
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: $blue_ford;
+          margin: 0.3rem 0;
+        }
+  
+        .commission {
+          font-size: 0.9rem;
+          color: $font_color;
+        }
+      }
+  
+      .consult-button {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background-color: $blue_ford;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        width: 100%;
+        cursor: pointer;
+      
+        &:hover {
+          background-color: #1525bb;
+        }
+      
+        .whatsapp-icon {
+          font-size: 1.5rem; // Tamaño del ícono
+        }
+      }
+    }
+  
+    .vehicle-image {
+      margin-top: 1rem;
+  
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+    }
+  
+    // Adaptación para pantallas grandes
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+  
+      .vehicle-content-detail {
+        margin-top: 2rem;
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .header {
+            h1 {
+              font-size: 1.8rem;
+            }
+      
+            .version {
+              font-size: 1.2rem;
+            }
+          }
+      
+          .specifications {
+            div {
+              p {
+                margin: 0.3rem 0;
+                font-size: 1rem;
+      
+                strong {
+                  font-weight: bold;
+                  color: $font_color-title;
+                }
+              }
+            }
+          }
+  
+        .consult-button {
+          width: 50%;
+          margin: 1rem 25% auto;
+        }
+      }
+  
+      .vehicle-image {
+        flex: 3;
+        margin-top: 0;
+  
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+  

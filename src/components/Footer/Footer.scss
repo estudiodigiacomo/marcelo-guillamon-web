@@ -1,0 +1,59 @@
+@import "../../utils/variables.scss";
+
+.footer {
+    background-color: $background-color_oxford;
+    padding: 20px 10px;
+    font-family: $font-primary;
+    color: $font_color;
+    margin-top: 2rem;
+  
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+  
+    &__logo {
+      max-width: 200px;
+      margin-bottom: 10px;
+    }
+  
+    &__info {
+      flex: 1;
+      font-size: 14px;
+  
+      svg {
+        margin-right: 8px;
+        color: $blue_ford;
+        vertical-align: middle;
+      }
+  
+      a {
+        color: inherit;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+  
+      p {
+        margin: 5px 0;
+      }
+    }
+  
+    &__credits {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #777;
+    }
+  }
+  

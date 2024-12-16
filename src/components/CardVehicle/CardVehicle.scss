@@ -1,33 +1,16 @@
 @import "../../utils/variables.scss";
 
-.spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: $blue_ford; // Color específico
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 50px auto; // Centrado en pantalla
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.title-latest {
+.title-catalog {
   font-family: $font-primary;
   color: $font_color-title;
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 1.5rem 0rem 0rem 1.3rem;
+  margin: 2rem 0 1rem 1rem;
 }
 
-.latest-vehicles {
-  margin: 20px 20px;
+.vehicle-cata {
+  margin: 0 20px;
   text-align: center;
-  font-family: $font-primary;
 
   .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
@@ -55,6 +38,7 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       width: 100%;
+      max-width: 300px;
       background-color: $silver_gray;
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -76,27 +60,19 @@
           color: $font_color-title;
         }
 
+        .vehicle-version,
         .vehicle-type {
           font-size: 1rem;
           color: $font_color;
-          margin: 5px 0px 10px 0px;
-        }
-
-        .vehicle-version {
-          font-size: 1rem;
-          color: $font_color;
-          margin: 5px 0px 10px 0px;
-          font-weight: 500;
+          margin: 5px 0;
         }
 
         .vehicle-specs {
           display: flex;
           justify-content: space-between;
-          flex-wrap: wrap;
-          gap: 5px;
-          margin: 10px 0;
           font-size: 0.8rem;
           color: $font_color;
+          margin: 10px 0;
         }
 
         .vehicle-price {
@@ -132,68 +108,24 @@
   }
 }
 
-@media (min-width: 769px) {
-  .title-latest {
-    font-family: $font-primary;
-    font-weight: 600;
-    margin: 1.5rem 0rem 0rem 1.3rem;
-  }
-
-  .latest-vehicles {
-    .vehicle-cards {
-      .vehicle-card {
-        width: 48%;
-        height: auto;
-
-        .vehicle-details {
-          h3 {
-            font-size: 1.2rem;
-          }
-
-          .vehicle-specs {
-            font-size: 0.9rem;
-          }
-
-          .vehicle-price {
-            font-size: 1.2rem;
-          }
-        }
-      }
+@media (min-width: 768px) {
+  .vehicle-cards {
+    .vehicle-card {
+      max-width: 45%;
     }
   }
 }
 
 @media (min-width: 1024px) {
-  .title-latest {
-    font-family: $font-primary;
-    font-weight: 600;
-    font-size: 1.5rem;
-    margin: 2rem 0rem 0rem 4rem;
-  }
-
-  .latest-vehicles {
-    .vehicle-cards {
-      .vehicle-card {
-        width: 22%;
-
-        .vehicle-image {
-          height: 180px;
-        }
-
-        .vehicle-details {
-          h3 {
-            font-size: 1.4rem;
-          }
-
-          .vehicle-price {
-            font-size: 1.4rem;
-          }
-
-          .detail-button {
-            font-size: 1.1rem;
-          }
-        }
+    .title-catalog {
+        font-family: $font-primary;
+        font-size: 1.5rem;
+        color: $font_color-title;
+        margin: 2rem 0 1rem 3rem;
       }
+  .vehicle-cards {
+    .vehicle-card {
+      max-width: 22%;
     }
   }
 }
