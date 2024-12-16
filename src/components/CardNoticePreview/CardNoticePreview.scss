@@ -14,7 +14,7 @@
   box-sizing: border-box;
   margin: 1rem 0;
   padding: 1rem;
-  background-color: $background-color;
+  background-color: $background-color_oxford;
   border-radius: 10px;
 
   .img-preview {
@@ -35,14 +35,14 @@
     .title-preview {
       font-size: 1.2rem;
       margin-bottom: 0.4rem;
-      color: $tertiary-color;
-      font-family: $font-tertiary;
+      color: $silver_gray;
+      font-family: $font-primary;
       font-weight: 900;
     }
 
     .text-preview {
       font-size: 0.8rem;
-      color: $tertiary-color-preview;
+      color: $font_color;
       font-family: $font-primary;
     }
   }

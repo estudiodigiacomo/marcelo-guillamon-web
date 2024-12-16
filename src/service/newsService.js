@@ -1,4 +1,4 @@
-import { db } from '../config/firebaseConfig.js';
+import { db } from '../config/firebaseConfig.js'
 import { collection, addDoc, getDocs, getDoc, doc, updateDoc, deleteDoc, query, orderBy, limit } from "firebase/firestore";
 
 // Crear una nueva noticia
