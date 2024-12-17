@@ -18,7 +18,7 @@ const Navbar = () => {
         contactSection.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      window.location.href = "/#contact";
+      window.location.href = "/contacto";
     }
     setIsOpen(false);
   };
@@ -44,9 +44,9 @@ const Navbar = () => {
           <Link to="/noticias" onClick={() => setIsOpen(false)}>
             Noticias
           </Link>
-          <button onClick={scrollToContact} className="contact-link">
+          <Link to="/contacto" onClick={() => setIsOpen(false)}>
             Contacto
-          </button>
+          </Link>
         </div>
 
         <button className="navbar-toggle" onClick={toggleMenu}>

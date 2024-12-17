@@ -1,0 +1,46 @@
+@import "../../utils/variables.scss";
+
+.news-detail-container {
+  max-width: 900px;
+  margin: 2rem auto;
+
+  .news-detail-title{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-family: $font-primary;
+    font-weight: 600;
+    color: $font_color-title;
+  }
+
+  .news-detail-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+  }
+
+  .news-detail-content {
+    padding: 0 1rem;
+
+    .news-detail-section {
+      margin-bottom: 2rem;
+
+      .news-detail-subtitle {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: $font_color;
+        font-family: $font-primary;
+      }
+
+      .news-detail-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: justify;
+        font-family: $font-primary;
+      }
+    }
+  }
+}

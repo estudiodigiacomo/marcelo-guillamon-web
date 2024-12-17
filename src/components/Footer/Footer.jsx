@@ -14,7 +14,7 @@ const Footer = () => {
           <p>
             <FaMapMarkerAlt /> 
             <a
-                href="https://www.google.com/maps?q=-38.37626121962469,-60.266417090762"
+                href="https://maps.app.goo.gl/eYqgCCyxw1FMws2j8"
                 className="data-location"
                 target="_blank"
                 rel="noopener noreferrer">

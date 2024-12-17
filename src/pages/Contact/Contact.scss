@@ -1,0 +1,112 @@
+@import "../../utils/variables.scss";
+
+.contact-page {
+  padding: 2rem 1rem;
+  font-family: $font-primary;
+  color: $font_color;
+
+  .contact-title {
+    font-family: $font-primary;
+    color: $font_color-title;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0rem 0rem 1rem 0.5rem;
+  }
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .number-link{
+        text-decoration: none;
+        color: $font_color;
+        &:hover {
+          color: $blue_ford;
+        };
+    }
+
+    // Información de contacto
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        .icon {
+          font-size: 1.5rem;
+          color: $blue_ford;
+
+          &.whatsapp {
+            color: #25D366; // Verde WhatsApp
+          }
+        }
+
+        .contact-name {
+          font-weight: bold;
+          font-size: 1.1rem;
+          color: $font_color-title;
+          margin-bottom: 0.2rem;
+        }
+
+        .contact-detail {
+          margin: 0;
+          a {
+            text-decoration: none;
+            color: $font_color;
+            &:hover {
+              color: $blue_ford;
+            }
+          }
+        }
+
+        .data-location {
+          font-size: 1rem;
+          color: $font_color;
+          text-decoration: none;
+          &:hover {
+            color: $blue_ford;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    // Mapa
+    .contact-map {
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // Ajustes para pantallas grandes
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .contact-info {
+        flex: 1;
+      }
+
+      .contact-map {
+        flex: 1;
+        height: 400px;
+      }
+    }
+  }
+}

@@ -1,11 +1,29 @@
 @import "../../utils/variables.scss";
 
+.back-button {
+  margin: 1rem;
+  background-color: $blue_ford;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+
 .vehicle-details-detall {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     padding: 1rem;
     font-family: $font-primary;
+    
   
     .vehicle-content-detail {
       text-align: left;

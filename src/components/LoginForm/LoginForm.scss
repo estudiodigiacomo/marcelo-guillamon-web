@@ -1,0 +1,39 @@
+@import "../../utils/variables.scss";
+
+.card {
+    border-radius: 15px;
+    font-family: $font-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+  
+    .logo-login {
+      width: 70%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+  
+    .form-check-label {
+      font-size: 0.9rem;
+    }
+  
+    .btn-link {
+      font-size: 0.9rem;
+      color: $font_color;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    button[type="submit"] {
+      background-color: $font_color;
+      border: none;
+      text-transform: uppercase;
+      &:hover {
+        background-color: $silver_gray;
+      }
+    }
+  }
+  

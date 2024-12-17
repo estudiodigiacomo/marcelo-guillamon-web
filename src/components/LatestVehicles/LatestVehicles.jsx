@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getLatestVehicles } from '../../service/vehiclesService.js';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 import './LatestVehicles.scss';
 
 const LatestVehicles = () => {
   const [vehicles, setVehicles] = useState([]);
   const [loading, setLoading] = useState(true); // Estado para el spinner
+  const navigate = useNavigate(); // Hook de navegación
 
   useEffect(() => {
     const fetchLatestVehicles = async () => {
@@ -20,6 +22,10 @@ const LatestVehicles = () => {
     fetchLatestVehicles();
   }, []);
 
+  const handleDetail = (id) => {
+    navigate(`/catalogo/${id}`); // Navega a la ruta de detalles
+  };
+
   return (
     <>
       <h2 className='title-latest'>Vehículos Destacados</h2>
@@ -31,7 +37,12 @@ const LatestVehicles = () => {
         ) : (
           <div className="vehicle-cards">
             {vehicles.map((vehicle) => (
-              <div key={vehicle.id} className="vehicle-card">
+              <div 
+                key={vehicle.id} 
+                className="vehicle-card"
+                onClick={() => handleDetail(vehicle.id)} // Clic en la tarjeta completa
+                style={{ cursor: 'pointer' }} // Cambia el cursor a puntero
+              >
                 <img
                   src={vehicle.imagenes && vehicle.imagenes[0] ? vehicle.imagenes[0] : 'placeholder.jpg'}
                   alt={`${vehicle.brand} ${vehicle.model}`}
@@ -51,7 +62,13 @@ const LatestVehicles = () => {
                   <p className="vehicle-price">
                     {vehicle.currency} {vehicle.price.toLocaleString()}
                   </p>
-                  <button onClick={() => handleDetail(vehicle.id)} className="detail-button">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDetail(vehicle.id);
+                    }} 
+                    className="detail-button"
+                  >
                     Ver Ficha
                   </button>
                 </div>
@@ -62,11 +79,6 @@ const LatestVehicles = () => {
       </div>
     </>
   );
-};
-
-// Placeholder function for button click
-const handleDetail = (id) => {
-  console.log(`Go to details of vehicle ID: ${id}`);
 };
 
 export default LatestVehicles;

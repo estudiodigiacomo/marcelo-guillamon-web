@@ -1,155 +1,212 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { addVehicleWithImages } from '../../service/addVehicleWithImages.js';
-import './addVehicles.scss'
+import { getVehicleById, updateVehicle } from '../../service/vehiclesService.js';
+import './addVehicles.scss';
+import { FiUpload } from 'react-icons/fi';
 
 const AddVehicleForm = () => {
-    const [vehicleData, setVehicleData] = useState({
-      model: '',
-      version: '',
-      brand: '',
-      kilometers: 0,
-      year: 0,
-      price: 0,
-      consignament: false,
-      engine: '',
-      fuel: '',
-      traction: '',
-      currency: '',
-      color: '',
-      type: '',
-      buy: false,
-    });
-    const [files, setFiles] = useState([]);
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        await addVehicleWithImages(vehicleData, files);
-        alert('Vehículo agregado exitosamente');
-      } catch (error) {
-        console.error(error);
-        alert('Hubo un error al agregar el vehículo');
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [vehicleData, setVehicleData] = useState({
+    model: '',
+    version: '',
+    brand: '',
+    kilometers: '',
+    year: '',
+    price: '',
+    consignament: false,
+    engine: '',
+    fuel: '',
+    traction: '',
+    transmission: '',
+    currency: '',
+    color: '',
+    type: '',
+    buy: false,
+    description: '',
+  });
+
+  const [files, setFiles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
+  useEffect(() => {
+    const fetchVehicleData = async () => {
+      if (id) {
+        try {
+          const existingVehicle = await getVehicleById(id);
+          setVehicleData(existingVehicle);
+        } catch (error) {
+          console.error('Error al cargar el vehículo:', error);
+        }
       }
+      setLoading(false);
     };
-  
-    return (
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <input
-          type="text"
-          placeholder="Marca"
-          value={vehicleData.brand}
-          onChange={(e) => setVehicleData({ ...vehicleData, brand: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Modelo"
-          value={vehicleData.model}
-          onChange={(e) => setVehicleData({ ...vehicleData, model: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Versión"
-          value={vehicleData.version}
-          onChange={(e) => setVehicleData({ ...vehicleData, version: e.target.value })}
-        />
+    fetchVehicleData();
+  }, [id]);
 
-
-        <p>Kilometros</p>
-        <input
-          type="number"
-          placeholder="Kilómetros"
-          value={vehicleData.kilometers}
-          onChange={(e) => setVehicleData({ ...vehicleData, kilometers: parseInt(e.target.value) })}
-        />
-        <p>Año</p>
-        <input
-          type="number"
-          placeholder="Año"
-          value={vehicleData.year}
-          onChange={(e) => setVehicleData({ ...vehicleData, year: parseInt(e.target.value) })}
-        />
-        <p>Precio</p>
-        <input
-          type="number"
-          placeholder="Precio"
-          value={vehicleData.price}
-          onChange={(e) => setVehicleData({ ...vehicleData, price: parseFloat(e.target.value) })}
-        />
-        <select
-          value={vehicleData.currency}
-          onChange={(e) => setVehicleData({ ...vehicleData, currency: e.target.value })}
-        >
-          <option value="">Seleccionar Moneda</option>
-          <option value="USD">USD</option>
-          <option value="ARS">ARS</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Motor"
-          value={vehicleData.engine}
-          onChange={(e) => setVehicleData({ ...vehicleData, engine: e.target.value })}
-        />
-        <select
-          value={vehicleData.fuel}
-          onChange={(e) => setVehicleData({ ...vehicleData, fuel: e.target.value })}
-        >
-          <option value="">Seleccionar Combustible</option>
-          <option value="Nafta">Nafta</option>
-          <option value="GNC">GNC</option>
-          <option value="Diésel">Diésel</option>
-          <option value="Eléctrico">Eléctrico</option>
-          <option value="Híbrido">Híbrido</option>
-        </select>
-        <select
-          value={vehicleData.tracción}
-          onChange={(e) => setVehicleData({ ...vehicleData, traction: e.target.value })}
-        >
-          <option value="">Seleccionar Tracción</option>
-          <option value="Integral">Integral</option>
-          <option value="4x2">4x2</option>
-          <option value="4x4">4x4</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Color"
-          value={vehicleData.color}
-          onChange={(e) => setVehicleData({ ...vehicleData, color: e.target.value })}
-        />
-        <select
-          value={vehicleData.type}
-          onChange={(e) => setVehicleData({ ...vehicleData, type: e.target.value })}
-        >
-          <option value="">Seleccionar Tipo</option>
-          <option value="Sedán 4 Puertas">Sedán 4 Puertas</option>
-          <option value="Sedán 5 Puertas">Sedán 5 Puertas</option>
-          <option value="SUV">SUV</option>
-          <option value="Pick Up">Pick Up</option>
-          <option value="Rural">Rural</option>
-        </select>
-        <label>
-          <input
-            type="checkbox"
-            checked={vehicleData.consignament}
-            onChange={(e) => setVehicleData({ ...vehicleData, consignament: e.target.checked })}
-          />
-          Consignación
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            checked={vehicleData.buy}
-            onChange={(e) => setVehicleData({ ...vehicleData, buy: e.target.checked })}
-          />
-          Vendido
-        </label>
-        <input
-          type="file"
-          multiple
-          onChange={(e) => setFiles(Array.from(e.target.files))}
-        />
-        <button type="submit">Agregar Vehículo</button>
-      </form>
-    );
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setVehicleData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
-  
-  export default AddVehicleForm;
+
+  const handleImageUploadClick = () => {
+    document.getElementById('imageUploadInput').click();
+  };
+
+  const handleImageChange = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFiles(selectedFiles);
+  };
+
+  const handleSoldClick = () => {
+    setVehicleData((prevData) => ({
+      ...prevData,
+      buy: !prevData.buy,
+    }));
+    setModalMessage('El vehículo ha sido marcado como vendido.');
+    setShowModal(true);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (id) {
+        await updateVehicle(id, vehicleData);
+        setModalMessage('Vehículo actualizado exitosamente.');
+      } else {
+        await addVehicleWithImages(vehicleData, files);
+        setModalMessage('Vehículo agregado exitosamente.');
+      }
+      setShowModal(true);
+    } catch (error) {
+      console.error('Error al guardar el vehículo:', error);
+      setModalMessage('Error al guardar el vehículo. Intenta nuevamente.');
+      setShowModal(true);
+    }
+  };
+
+  if (loading) return <div className="spinner"></div>;
+
+  return (
+    <>
+      <form onSubmit={handleSubmit} className="vehicle-form">
+        <div className="form-grid">
+          {/* Sección izquierda con inputs */}
+          <div className="left-section">
+            <div className="row">
+              <input name="model" placeholder="Nombre" value={vehicleData.model} onChange={handleChange} />
+              <select name="type" value={vehicleData.type} onChange={handleChange}>
+                <option value="">Tipo</option>
+                <option value="Sedán">Sedán</option>
+                <option value="SUV">SUV</option>
+                <option value="Pick Up">Pick Up</option>
+              </select>
+            </div>
+            <div className="row">
+              <input name="version" placeholder="Versión" value={vehicleData.version} onChange={handleChange} />
+            </div>
+            <div className="row">
+              <input name="year" placeholder="Año" type="number" value={vehicleData.year} onChange={handleChange} />
+              <select name="traction" value={vehicleData.traction} onChange={handleChange}>
+                <option value="">Tracción</option>
+                <option value="4x2">4x2</option>
+                <option value="4x4">4x4</option>
+                <option value="Integral">Integral</option>
+              </select>
+            </div>
+            <div className="row">
+              <input name="engine" placeholder="Cilindrada" value={vehicleData.engine} onChange={handleChange} />
+              <input name="kilometers" placeholder="Kilómetros" type="number" value={vehicleData.kilometers} onChange={handleChange} />
+            </div>
+            <div className="row">
+              <select name="fuel" value={vehicleData.fuel} onChange={handleChange}>
+                <option value="">Combustible</option>
+                <option value="Nafta">Nafta</option>
+                <option value="Gas">Gas</option>
+                <option value="Híbrido">Híbrido</option>
+              </select>
+              <select name="brand" value={vehicleData.brand} onChange={handleChange}>
+                <option value="">Marca</option>
+                <option value="Ford">Ford</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Chevrolet">Chevrolet</option>
+              </select>
+            </div>
+            <div className="row">
+              <input name="color" placeholder="Color" value={vehicleData.color} onChange={handleChange} />
+              <select name="transmission" value={vehicleData.transmission} onChange={handleChange}>
+                <option value="">Transmisión</option>
+                <option value="Manual">Manual</option>
+                <option value="Automática">Automática</option>
+              </select>
+            </div>
+            <div className="row">
+              <select name="currency" value={vehicleData.currency} onChange={handleChange}>
+                <option value="">Moneda</option>
+                <option value="ARS">ARS</option>
+                <option value="USD">USD</option>
+              </select>
+              <input name="price" placeholder="Precio" type="number" value={vehicleData.price} onChange={handleChange} />
+            </div>
+            <div className="row">
+              <label>
+                <input type="checkbox" name="consignament" checked={vehicleData.consignament} onChange={handleChange} />
+                Consignación
+              </label>
+            </div>
+            <button type="button" className="btn-sold" onClick={handleSoldClick}>
+              {vehicleData.buy ? 'Desmarcar Vendido' : 'Marcar como Vendido'}
+            </button>
+          </div>
+
+          {/* Sección derecha para imágenes */}
+          <div className="right-section" onClick={handleImageUploadClick}>
+            <div className="image-upload hoverable">
+              <FiUpload size={40} />
+              <p>Añadir imágenes</p>
+              <input
+                id="imageUploadInput"
+                type="file"
+                multiple
+                style={{ display: 'none' }}
+                onChange={handleImageChange}
+              />
+            </div>
+            <div className="image-preview">
+              {files.map((file, index) => (
+                <img
+                  key={index}
+                  src={URL.createObjectURL(file)}
+                  alt={`preview-${index}`}
+                  className="preview-image"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <button type="submit" className="btn-submit">
+          {id ? 'Guardar Cambios' : 'Agregar Vehículo'}
+        </button>
+      </form>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>{modalMessage}</p>
+            <button onClick={() => setShowModal(false)}>Aceptar</button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default AddVehicleForm;

@@ -1,21 +1,197 @@
-form {
+@import "../../utils/variables.scss";
+
+.vehicle-form {
+  padding: 2rem;
+
+  .form-grid {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    margin: 0 auto;
+    gap: 2rem;
+
+    .left-section {
+      flex: 2;
+
+      .row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        input, select {
+          flex: 1;
+          padding: 0.5rem;
+          border: 1px solid $silver_gray;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    .right-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      border: 2px dashed $silver_gray;
+      border-radius: 5px;
+      height: 250px;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        background-color: $background-color_oxford;
+        border-color: $blue_ford;
+      }
+
+      .image-upload {
+        text-align: center;
+
+        p {
+          margin: 0.5rem 0;
+          color: #666;
+        }
+      }
+
+      .image-preview {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+
+        .preview-image {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      }
+    }
   }
-  
-  button {
-    padding: 10px;
-    background-color: #007bff;
+
+  .btn-sold {
+    margin: 1rem 0rem 2rem 0rem;
+    background-color: #28a745;
     color: white;
+    padding: 0.5rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
+    &:hover {
+      background-color: #218838;
+    }
   }
-  
-  button:hover {
-    background-color: #0056b3;
+
+  .btn-submit {
+    margin: 1rem 0rem 2rem 0rem;
+    background-color: $blue_ford;
+    color: white;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0b4b9e;
+    }
   }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    
+      .modal-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+    
+        p {
+          margin-bottom: 1.5rem;
+          font-size: 1rem;
+          color: #333;
+        }
+    
+        button {
+          background-color: $blue_ford;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          cursor: pointer;
+    
+          &:hover {
+            background-color: #0b4b9e;
+          }
+        }
+    
+        .spinner {
+          border: 4px solid rgba(0, 0, 0, 0.1);
+          border-left-color: $blue_ford;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin: auto;
+        }
+    
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+  }    
+
+  // Media query para pantallas menores a 768px
+  @media (max-width: 767px) {
+    .form-grid {
+      flex-direction: column; // Apila las secciones verticalmente
+      gap: 1rem;
+
+      .left-section {
+        .row {
+          flex-direction: column; // Inputs y selects uno debajo del otro
+          gap: 0.5rem;
+
+          input, select {
+            width: 100%; // Ocupan todo el ancho
+          }
+        }
+      }
+
+      .right-section {
+        height: auto; // Ajusta la altura
+        padding: 1rem;
+      }
+    }
+
+    .btn-sold, .btn-submit {
+      width: 100%; // Botones ocupan todo el ancho
+    }
+  }
+}
