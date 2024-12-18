@@ -26,6 +26,7 @@ const AddVehicleForm = () => {
     type: '',
     buy: false,
     description: '',
+    barter: '',
   });
 
   const [files, setFiles] = useState([]);
@@ -99,14 +100,42 @@ const AddVehicleForm = () => {
       <form onSubmit={handleSubmit} className="vehicle-form">
         <div className="form-grid">
           {/* Sección izquierda con inputs */}
+          
           <div className="left-section">
             <div className="row">
-              <input name="model" placeholder="Nombre" value={vehicleData.model} onChange={handleChange} />
+              {/* Input con datalist para Marca */}
+              <input
+                list="brand-options"
+                name="brand"
+                placeholder="Marca"
+                value={vehicleData.brand}
+                onChange={handleChange}
+              />
+              <datalist id="brand-options">
+                <option value="Ford" />
+                <option value="Toyota" />
+                <option value="Chevrolet" />
+                <option value="Nissan" />
+                <option value="Volkswagen" />
+                <option value="Renault" />
+                <option value="Fiat" />
+                <option value="Peugeot" />
+                <option value="Honda" />
+              </datalist>
+              
+              <input
+                name="model"
+                placeholder="Modelo"
+                value={vehicleData.model}
+                onChange={handleChange}
+              />
               <select name="type" value={vehicleData.type} onChange={handleChange}>
                 <option value="">Tipo</option>
                 <option value="Sedán">Sedán</option>
                 <option value="SUV">SUV</option>
                 <option value="Pick Up">Pick Up</option>
+                <option value="Rural">Rural</option>
+                <option value="Utilitario">Utilitario</option>
               </select>
             </div>
             <div className="row">
@@ -129,14 +158,9 @@ const AddVehicleForm = () => {
               <select name="fuel" value={vehicleData.fuel} onChange={handleChange}>
                 <option value="">Combustible</option>
                 <option value="Nafta">Nafta</option>
-                <option value="Gas">Gas</option>
+                <option value="GNC">GNC</option>
+                <option value="Diesel">Diésel</option>
                 <option value="Híbrido">Híbrido</option>
-              </select>
-              <select name="brand" value={vehicleData.brand} onChange={handleChange}>
-                <option value="">Marca</option>
-                <option value="Ford">Ford</option>
-                <option value="Toyota">Toyota</option>
-                <option value="Chevrolet">Chevrolet</option>
               </select>
             </div>
             <div className="row">
@@ -145,6 +169,13 @@ const AddVehicleForm = () => {
                 <option value="">Transmisión</option>
                 <option value="Manual">Manual</option>
                 <option value="Automática">Automática</option>
+              </select>
+            </div>
+            <div className="row">
+              <select name="barter" value={vehicleData.barter} onChange={handleChange}>
+                <option value="No Permuta">No Permuta</option>
+                <option value="Permuta">Permuta</option>
+                <option value="Consultar">Consultar</option>
               </select>
             </div>
             <div className="row">

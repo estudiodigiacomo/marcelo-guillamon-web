@@ -16,7 +16,8 @@ export const addVehicle = async (vehicleData) => {
 // Obtener todos los vehículos
 export const getVehicles = async () => {
   try {
-    const querySnapshot = await getDocs(vehiclesCollection);
+    const q = query(vehiclesCollection, orderBy('createdAt', 'desc')); 
+    const querySnapshot = await getDocs(q);
     return querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),

@@ -52,12 +52,24 @@ const Footer = () => {
             + 54 2983 610977
         </a>
           </p>
+          <p>
+            <FaWhatsapp />
+            <a
+            href="https://wa.me/542983381339"
+            className="number-link"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            + 54 2983 381339
+        </a>
+          </p>
         </div>
 
         {/* Créditos */}
         <div className="footer__credits">
           <p>Copyright 2024 © Marcelo Guillamón Automotores</p>
           <p>Realizado por Di Giacomo Estudio</p>
+          <a className="admin_entry" href="/login">Administrador</a>
         </div>
       </div>
     </footer>

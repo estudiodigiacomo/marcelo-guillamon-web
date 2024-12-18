@@ -54,7 +54,7 @@ const PostOrEditNews = () => {
         await createNotice(title, sections, imageUrl);
         console.log("Noticia creada");
       }
-      navigate("/blog");
+      navigate("/noticias");
     } catch (error) {
       console.error("Error al guardar la noticia:", error);
     }

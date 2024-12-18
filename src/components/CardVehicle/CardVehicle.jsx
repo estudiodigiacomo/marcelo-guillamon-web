@@ -18,7 +18,11 @@ const CardVehicle = () => {
     const fetchVehicles = async () => {
       try {
         const vehiclesData = await getVehicles();
-        setVehicles(vehiclesData);
+        // Ordenar vehículos de más viejo a más nuevo
+        const sortedVehicles = vehiclesData.sort((a, b) => {
+          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        });
+        setVehicles(sortedVehicles);
       } catch (error) {
         console.error('Error fetching vehicles:', error);
       } finally {

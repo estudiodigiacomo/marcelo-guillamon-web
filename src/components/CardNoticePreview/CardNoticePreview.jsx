@@ -21,13 +21,13 @@ const CardNoticePreview = () => {
 
   return (
     <>
-      <h2 className='title-notice-preview'>Ultimas Noticias</h2>
+      <h2 className='title-notice-preview'>Últimas Noticias</h2>
       <div className="notice-preview">
         {latestNews.map((notice) => (
           <div
             className="content-preview"
             key={notice.id}
-            onClick={() => navigate(`/noticia/${notice.id}`)} 
+            onClick={() => navigate(`/noticias/${notice.id}`)} 
             style={{ cursor: "pointer" }} 
           >
             {notice.imageUrl && (

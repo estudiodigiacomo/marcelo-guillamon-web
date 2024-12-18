@@ -24,9 +24,9 @@ const aboutBanner = () => {
             </div>
         </div>
         <div class="image-gallery">
-            <img src="https://storage.googleapis.com/guillamon-img/IMG_20241024_110518243_HDR.jpg" alt="Imagen 1" class="gallery-image" />
-            <img src="https://storage.googleapis.com/guillamon-img/IMG_20241024_110948076_HDR.jpg" alt="Imagen 2" class="gallery-image" />
-            <img src="https://storage.googleapis.com/guillamon-img/entrega.jpg" alt="Imagen 3" class="gallery-image" />
+            <img src="https://storage.googleapis.com/guillamon-img/IMG_20241024_110518243_HDR.jpg" alt="Imagen 1" className="gallery-image" />
+            <img src="https://storage.googleapis.com/guillamon-img/IMG_20241024_110948076_HDR.jpg" alt="Imagen 2" className="gallery-image" />
+            <img src="https://storage.googleapis.com/guillamon-img/entrega.jpg" alt="Imagen 3" className="gallery-image" />
         </div>
         <div className="about-cards-container">
             <div className="about-card">

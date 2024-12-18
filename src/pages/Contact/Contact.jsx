@@ -1,31 +1,17 @@
 import React from "react";
-import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { MdPerson } from "react-icons/md";
 import "./Contact.scss";
 
 const ContactPage = () => {
   return (
     <div className="contact-page">
-      <h2 className="contact-title">Contactanos</h2>
+      <h2 className="contact-title">Contáctanos</h2>
       <div className="contact-container">
         {/* Sección de Información de Contacto */}
         <div className="contact-info">
           <div className="contact-item">
-            <FaWhatsapp className="icon whatsapp" />
-            <div>
-              <p className="contact-name">Stefan</p>
-              <p>
-                <a
-                href="https://wa.me/542983610977"
-                className="number-link"
-                target="_blank"
-                rel="noopener noreferrer">
-                + 54 2983 610977
-                </a>
-            </p>
-            </div>
-          </div>
-          <div className="contact-item">
-            <FaWhatsapp className="icon whatsapp" />
+            <MdPerson className="icon whatsapp" />
             <div>
               <p className="contact-name">Marcelo</p>
               <p className="contact-detail">
@@ -33,23 +19,48 @@ const ContactPage = () => {
                 href="https://wa.me/542983646897"
                 className="number-link"
                 target="_blank"
-                rel="noopener noreferrer"
-                >
-                    + 54 2983 646897
-                </a>
-              </p>
+                rel="noopener noreferrer">+ 54 2983 646897</a></p>
+              <p className="contact-detail">{" "}
+              <a href="mailto:marceloguillamon@gmail.com">
+              marceloguillamon@gmail.com
+              </a></p>
+            </div>
+          </div>
+          <div className="contact-item">
+            <MdPerson className="icon whatsapp" />
+            <div>
+              <p className="contact-name">Stefan</p>
+              <p>
+                <a
+                href="https://wa.me/542983610977"
+                className="number-link"
+                target="_blank"
+                rel="noopener noreferrer">+ 54 2983 610977</a></p>
+            <p className="contact-detail">{" "}
+              <a href="mailto:marceloguillamon@gmail.com">
+              guillamon.autos@gmail.com
+              </a></p>
+            </div>
+          </div>
+          <div className="contact-item">
+            <MdPerson className="icon whatsapp" />
+            <div>
+              <p className="contact-name">Patricio</p>
+              <p>
+                <a
+                href="https://wa.me/542983381339"
+                className="number-link"
+                target="_blank"
+                rel="noopener noreferrer">+ 54 2983 381339</a></p>
+            <p className="contact-detail">{" "}
+              <a href="mailto:marceloguillamon@gmail.com">
+              guillamon.usados@gmail.com
+              </a></p>
             </div>
           </div>
           <div className="contact-item">
             <FaPhoneAlt className="icon" />
             <p className="contact-detail">02983 43-1644</p>
-          </div>
-          <div className="contact-item">
-            <FaEnvelope className="icon" />
-            <p className="contact-detail">{" "}
-            <a href="mailto:marceloguillamon@gmail.com">
-            marceloguillamon@gmail.com
-            </a></p>
           </div>
           <div className="contact-item">
             <FaMapMarkerAlt className="icon" />

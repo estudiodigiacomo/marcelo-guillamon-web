@@ -60,6 +60,9 @@ const VehicleDetails = () => {
               <p>
                 <strong>Color:</strong> {vehicle.color}
               </p>
+              <p>
+                <strong>Permuta:</strong> {vehicle.barter}
+              </p>
             </div>
             <div>
               <p>

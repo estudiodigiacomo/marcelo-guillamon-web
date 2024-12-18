@@ -54,6 +54,12 @@
       font-size: 12px;
       margin-top: 10px;
       color: #777;
+
+      .admin_entry {
+        text-decoration: none;
+        color: $font_color;
+        font-weight: 600;
+      }
     }
   }
   

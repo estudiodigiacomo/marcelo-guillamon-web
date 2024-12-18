@@ -13,8 +13,16 @@ const NewsCards = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const fetchedNews = await getNotice(); 
-        setNews(fetchedNews);
+        const fetchedNews = await getNotice();
+        
+        // Ordenar las noticias correctamente usando createdAt
+        const sortedNews = fetchedNews.sort((a, b) => {
+          const dateA = a.createdAt?.toDate ? a.createdAt.toDate() : new Date(a.createdAt);
+          const dateB = b.createdAt?.toDate ? b.createdAt.toDate() : new Date(b.createdAt);
+          return dateB - dateA;
+        });
+
+        setNews(sortedNews);
       } catch (error) {
         console.error("Error al obtener las noticias:", error);
       }
@@ -26,9 +34,13 @@ const NewsCards = () => {
     navigate(`/edit-post/${id}`);
   };
 
-  const handleDelete = (id) => {
-    deleteNotice(id);
-    console.log(`Eliminar noticia con ID: ${id}`);
+  const handleDelete = async (id) => {
+    try {
+      await deleteNotice(id);
+      setNews(news.filter((notice) => notice.id !== id));
+    } catch (error) {
+      console.error("Error al eliminar la noticia:", error);
+    }
   };
 
   const handleViewDetail = (id) => {
@@ -51,7 +63,7 @@ const NewsCards = () => {
         </button>
       )}
 
-      <div className="news-container"> 
+      <div className="news-container">
         {news.map((notice) => (
           <div
             className="news-card"
