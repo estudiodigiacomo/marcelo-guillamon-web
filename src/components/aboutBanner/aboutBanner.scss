@@ -1,0 +1,159 @@
+@import "../../utils/variables.scss";
+
+.content-header-about{
+    text-align: center;
+    .title-about{
+        margin: 1rem 0rem 1rem 0rem;
+        color: $font_color-title;
+        font-family: $font-primary;
+        font-weight: 600;
+    }
+
+    .banner-about{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+.first-text{
+    font-family: $font-primary;
+    .subtile-about{
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $font_color-title;
+        margin: 0rem 0.3rem 0.6rem 0.3rem;
+    }
+    .text-content{
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0rem 0.3rem 0.6rem 0.3rem;
+        color: $font_color;
+    }
+}
+
+.image-gallery {
+  display: flex;
+  flex-direction: column; 
+  gap: 1rem; 
+  padding: 1rem;
+
+  .gallery-image {
+    width: 100%; 
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; 
+  }
+
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .gallery-image {
+      width: calc(33.33% - 1rem);
+    }
+  }
+}
+
+.about-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  .about-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid $silver_gray;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+
+    .about-icon-box {
+      background-color: $blue_ford;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-right: 1rem;
+
+      .about-icon {
+        color: #fff;
+        font-size: 1.5rem;
+      }
+    }
+
+    .about-card-content {
+      .about-card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: $font_color-title;
+      }
+
+      .about-card-text {
+        font-size: 0.9rem;
+        color: $font_color;
+      }
+    }
+  }
+
+  // Pantallas medianas: dos columnas
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .about-card {
+      flex: 1 1 calc(48% - 1rem);
+      max-width: calc(48% - 1rem);
+    }
+  }
+
+  // Pantallas grandes: dos filas de dos columnas
+  @media (min-width: 1024px) {
+    .about-card {
+      flex: 1 1 calc(48% - 1rem);
+      max-width: calc(48% - 1rem);
+    }
+  }
+}
+
+
+
+@media (min-width: 768px) {
+    .content-header-about{
+        .title-about{
+            text-align: center;
+            margin: 2rem 0rem 2rem 0rem;
+            color: $font_color-title;
+        }
+        
+        .banner-about{
+            width: 80%;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+        }
+    }
+    .column-text{
+    display: flex;
+    }
+    .first-text{
+        .subtile-about{
+            font-size: 1.4rem;
+            margin: 1rem 1.5rem 0.6rem 2rem;
+        }
+        .text-content{
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0rem 2rem 0.6rem 2rem;
+            color: $font_color;
+        }
+  }
+}
+  
+  @media (min-width: 1024px) {
+
+  }

@@ -16,6 +16,8 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx';
 import LogoutButton from './components/LogoutButton/LogoutButton.jsx';
 import AddVehicleForm from './components/addVehicles/addVehicles.jsx';
 import ContactPage from './pages/Contact/Contact.jsx';
+import About from './pages/About/About.jsx';
+import WhatsAppButton from './components/WhatsAppBtn/WhatsAppBtn.jsx';
 
 function App() {
 
@@ -27,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/okm" element={<OkmVehicles />} />
+          <Route path="/nosotros" element={<About />} />
           <Route path="/catalogo" element={<Catalog />} />
           <Route path="/catalogo/:id" element={<VehicleDetails />} />
           <Route path="/noticias" element={<Notices />} />
@@ -67,6 +70,7 @@ function App() {
             }
           />
         </Routes>
+        <WhatsAppButton/>
         <Footer/>
       </BrowserRouter>
     </AuthProvider>
