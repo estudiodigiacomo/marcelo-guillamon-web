@@ -17,6 +17,7 @@
 
 .first-text{
     font-family: $font-primary;
+    
     .subtile-about{
         font-size: 1.2rem;
         font-weight: 600;
@@ -29,6 +30,12 @@
         margin: 0rem 0.3rem 0.6rem 0.3rem;
         color: $font_color;
     }
+}
+.lema-text{
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $font_color-title;
+  text-align: center;
 }
 
 .image-gallery {
@@ -137,19 +144,25 @@
             border-radius: 10px;
         }
     }
-    .column-text{
-    display: flex;
+
+    .lema-text{
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: $font_color-title;
+      text-align: center;
+      margin: 2.5rem 0rem 2.5rem 0rem;
     }
+
     .first-text{
         .subtile-about{
             font-size: 1.4rem;
-            margin: 1rem 1.5rem 0.6rem 2rem;
+            margin: 1rem 1.5rem 0.6rem 8rem;
         }
         .text-content{
             font-size: 1rem;
             font-weight: 600;
-            margin: 0rem 2rem 0.6rem 2rem;
-            color: $font_color;
+            margin: 0rem 9rem 0.6rem 9rem;
+            color: $font_color-title;
         }
   }
 }
