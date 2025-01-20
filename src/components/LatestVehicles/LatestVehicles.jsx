@@ -12,7 +12,11 @@ const LatestVehicles = () => {
     const fetchLatestVehicles = async () => {
       try {
         const latestVehicles = await getLatestVehicles();
-        setVehicles(latestVehicles);
+
+        // Filtrar los vehículos que no estén marcados como "buy: true"
+        const availableVehicles = latestVehicles.filter((vehicle) => !vehicle.buy);
+
+        setVehicles(availableVehicles);
       } catch (error) {
         console.error('Error fetching latest vehicles:', error);
       } finally {
@@ -28,12 +32,12 @@ const LatestVehicles = () => {
 
   return (
     <>
-      <h2 className='title-latest'>Vehículos Destacados</h2>
+      <h2 className="title-latest">Vehículos Destacados</h2>
       <div className="latest-vehicles">
         {loading ? (
           <div className="spinner"></div>
         ) : vehicles.length === 0 ? (
-          <p>No vehicles available.</p>
+          <p>No hay vehículos disponibles.</p>
         ) : (
           <div className="vehicle-cards">
             {vehicles.map((vehicle) => (
@@ -44,7 +48,11 @@ const LatestVehicles = () => {
                 style={{ cursor: 'pointer' }} // Cambia el cursor a puntero
               >
                 <img
-                  src={vehicle.imagenes && vehicle.imagenes[0] ? vehicle.imagenes[0] : 'placeholder.jpg'}
+                  src={
+                    vehicle.coverImage // Mostrar la imagen de portada
+                      ? vehicle.coverImage
+                      : 'placeholder.jpg' // Imagen predeterminada si no hay portada
+                  }
                   alt={`${vehicle.brand} ${vehicle.model}`}
                   className="vehicle-image"
                 />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addVehicleWithImages } from '../../service/addVehicleWithImages.js';
+import { addVehicleWithImages, updateVehicleWithImages } from '../../service/addVehicleWithImages.js';
 import { getVehicleById, updateVehicle } from '../../service/vehiclesService.js';
 import './addVehicles.scss';
 import { FiUpload } from 'react-icons/fi';
@@ -29,7 +29,8 @@ const AddVehicleForm = () => {
     barter: '',
   });
 
-  const [files, setFiles] = useState([]);
+  const [coverImage, setCoverImage] = useState(null); // Imagen de portada
+  const [secondaryImages, setSecondaryImages] = useState([]); // Imágenes secundarias
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
@@ -57,13 +58,19 @@ const AddVehicleForm = () => {
     }));
   };
 
-  const handleImageUploadClick = () => {
-    document.getElementById('imageUploadInput').click();
+  const handleCoverImageChange = (e) => {
+    const file = e.target.files[0]; // Solo permite una imagen para la portada
+    setCoverImage(file);
   };
 
-  const handleImageChange = (e) => {
+  const handleSecondaryImagesChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    setFiles(selectedFiles);
+    setSecondaryImages((prevFiles) => {
+      const newFiles = selectedFiles.filter(
+        (file) => !prevFiles.some((prevFile) => prevFile.name === file.name)
+      );
+      return [...prevFiles, ...newFiles];
+    });
   };
 
   const handleSoldClick = () => {
@@ -77,14 +84,18 @@ const AddVehicleForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     try {
       if (id) {
-        await updateVehicle(id, vehicleData);
+        // Actualizar vehículo existente
+        await updateVehicleWithImages(id, vehicleData, coverImage, secondaryImages);
         setModalMessage('Vehículo actualizado exitosamente.');
       } else {
-        await addVehicleWithImages(vehicleData, files);
+        // Crear nuevo vehículo
+        await addVehicleWithImages(vehicleData, coverImage, secondaryImages);
         setModalMessage('Vehículo agregado exitosamente.');
       }
+  
       setShowModal(true);
     } catch (error) {
       console.error('Error al guardar el vehículo:', error);
@@ -92,12 +103,12 @@ const AddVehicleForm = () => {
       setShowModal(true);
     }
   };
-
+  
   if (loading) return <div className="spinner"></div>;
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="vehicle-form">
+            <form onSubmit={handleSubmit} className="vehicle-form">
         <div className="form-grid">
           {/* Sección izquierda con inputs */}
           
@@ -197,28 +208,54 @@ const AddVehicleForm = () => {
             </button>
           </div>
 
-          {/* Sección derecha para imágenes */}
-          <div className="right-section" onClick={handleImageUploadClick}>
+          {/* Sección de imágenes */}
+          <div className="right-section">
+            {/* Imagen de portada */}
             <div className="image-upload hoverable">
-              <FiUpload size={40} />
-              <p>Añadir imágenes</p>
+              <label htmlFor="coverImageInput">
+                <FiUpload size={40} />
+                <p>Subir imagen de portada</p>
+              </label>
               <input
-                id="imageUploadInput"
+                id="coverImageInput"
                 type="file"
-                multiple
+                accept="image/*"
                 style={{ display: 'none' }}
-                onChange={handleImageChange}
+                onChange={handleCoverImageChange}
               />
-            </div>
-            <div className="image-preview">
-              {files.map((file, index) => (
+              {coverImage && (
                 <img
-                  key={index}
-                  src={URL.createObjectURL(file)}
-                  alt={`preview-${index}`}
+                  src={URL.createObjectURL(coverImage)}
+                  alt="Portada"
                   className="preview-image"
                 />
-              ))}
+              )}
+            </div>
+
+            {/* Imágenes secundarias */}
+            <div className="image-upload hoverable">
+              <label htmlFor="secondaryImagesInput">
+                <FiUpload size={40} />
+                <p>Subir imágenes secundarias</p>
+              </label>
+              <input
+                id="secondaryImagesInput"
+                type="file"
+                accept="image/*"
+                multiple
+                style={{ display: 'none' }}
+                onChange={handleSecondaryImagesChange}
+              />
+              <div className="image-preview">
+                {secondaryImages.map((file, index) => (
+                  <img
+                    key={index}
+                    src={URL.createObjectURL(file)}
+                    alt={`Secundaria-${index}`}
+                    className="preview-image"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

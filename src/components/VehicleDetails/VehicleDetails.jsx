@@ -31,13 +31,18 @@ const VehicleDetails = () => {
   if (!vehicle) {
     return <p>No se encontró el vehículo.</p>;
   }
+
+  // Combinar imagen de portada con imágenes secundarias
+  const allImages = vehicle.coverImage
+    ? [vehicle.coverImage, ...(vehicle.secondaryImages || [])]
+    : vehicle.secondaryImages || [];
+
   return (
     <>
       <button className="back-button" onClick={() => navigate(-1)}>
-      ← Volver
+        ← Volver
       </button>
       <div className="vehicle-details-detall">
-
         <div className="vehicle-content-detail">
           <div className="header">
             <h1>
@@ -72,7 +77,7 @@ const VehicleDetails = () => {
                 <strong>Kilómetros:</strong> {vehicle.kilometers} Km
               </p>
               <p>
-                <strong>Transmisión:</strong> Manual
+                <strong>Transmisión:</strong> {vehicle.transmission}
               </p>
               <p>
                 <strong>Marca:</strong> {vehicle.brand}
@@ -111,19 +116,18 @@ const VehicleDetails = () => {
             data-bs-ride="carousel"
           >
             <div className="carousel-inner">
-              {vehicle.imagenes &&
-                vehicle.imagenes.map((img, index) => (
-                  <div
-                    key={index}
-                    className={`carousel-item ${index === 0 ? "active" : ""}`}
-                  >
-                    <img
-                      src={img}
-                      className="d-block w-100"
-                      alt={`Imagen ${index + 1} de ${vehicle.brand}`}
-                    />
-                  </div>
-                ))}
+              {allImages.map((img, index) => (
+                <div
+                  key={index}
+                  className={`carousel-item ${index === 0 ? "active" : ""}`}
+                >
+                  <img
+                    src={img}
+                    className="d-block w-100"
+                    alt={`Imagen ${index + 1} de ${vehicle.brand}`}
+                  />
+                </div>
+              ))}
             </div>
 
             <button

@@ -81,9 +81,9 @@ const CardVehicle = () => {
                 {vehicle.buy && <div className="sold-banner">Vendido</div>}
                 <img
                   src={
-                    vehicle.imagenes && vehicle.imagenes[0]
-                      ? vehicle.imagenes[0]
-                      : 'placeholder.jpg'
+                    vehicle.coverImage // Mostrar la imagen de portada
+                      ? vehicle.coverImage
+                      : 'placeholder.jpg' // Imagen de reserva si no hay portada
                   }
                   alt={`${vehicle.brand} ${vehicle.model}`}
                   className="vehicle-image"
