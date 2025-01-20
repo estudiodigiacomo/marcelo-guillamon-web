@@ -57,7 +57,7 @@ const NewsCards = () => {
       <p className='title-blog'>Noticias</p>
 
       {user?.uid === "TIRcWSsdobf9gpn9qMWf4UH3QMx2" && (
-        <button className="news-add-button" onClick={() => navigate('/postnews')}>
+        <button className="news-add-button" onClick={() => navigate('/new-post')}>
           <FiEdit size={20} />
           Redactar Nuevo Post
         </button>
