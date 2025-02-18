@@ -57,7 +57,7 @@ const VehicleDetails = () => {
                 <strong>Año:</strong> {vehicle.year}
               </p>
               <p>
-                <strong>Motor:</strong> {vehicle.engine}L
+                <strong>Motor:</strong> {vehicle.engine}
               </p>
               <p>
                 <strong>Combustible:</strong> {vehicle.fuel}
@@ -90,14 +90,15 @@ const VehicleDetails = () => {
               {vehicle.consignament ? (
                 <>
                   <p className="price">Consignación</p>
-                  <p className="amount">ARS {vehicle.price.toLocaleString()}</p>
+                  <p className="amount">ARS {new Intl.NumberFormat("es-AR").format(vehicle.price)}</p>
                   <p className="commission">+ 3% de Comisión</p>
                 </>
               ) : (
-                <p className="amount">ARS {vehicle.price.toLocaleString()}</p>
+                <p className="amount">ARS {new Intl.NumberFormat("es-AR").format(vehicle.price)}</p>
               )}
             </div>
           </div>
+
 
           <a
             href="https://wa.me/542983646897"

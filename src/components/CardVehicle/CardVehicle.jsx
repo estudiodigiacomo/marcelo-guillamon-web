@@ -81,9 +81,9 @@ const CardVehicle = () => {
                 {vehicle.buy && <div className="sold-banner">Vendido</div>}
                 <img
                   src={
-                    vehicle.coverImage // Mostrar la imagen de portada
+                    vehicle.coverImage 
                       ? vehicle.coverImage
-                      : 'placeholder.jpg' // Imagen de reserva si no hay portada
+                      : 'placeholder.jpg' 
                   }
                   alt={`${vehicle.brand} ${vehicle.model}`}
                   className="vehicle-image"
@@ -102,7 +102,7 @@ const CardVehicle = () => {
                     <span>{vehicle.kilometers.toLocaleString()} Km</span>
                   </div>
                   <p className="vehicle-price">
-                    {vehicle.currency} {vehicle.price.toLocaleString()}
+                    {vehicle.currency} {new Intl.NumberFormat("es-AR").format(vehicle.price)}
                   </p>
                   <button
                     onClick={() => handleDetail(vehicle.id)}

@@ -68,7 +68,7 @@ const LatestVehicles = () => {
                     <span>{vehicle.kilometers.toLocaleString()} Km</span>
                   </div>
                   <p className="vehicle-price">
-                    {vehicle.currency} {vehicle.price.toLocaleString()}
+                    {vehicle.currency} {new Intl.NumberFormat("es-AR").format(vehicle.price)}
                   </p>
                   <button 
                     onClick={(e) => {

@@ -27,7 +27,7 @@ const aboutBanner = () => {
         <h2 className='lema-text'>"Una Vida con Ford"</h2>
         <div className="first-text">
             <p className='text-content'>Atentamente,</p>
-            <p className='text-content'>Marcelo Gullamón</p>
+            <p className='text-content'>Marcelo Guillamón</p>
         </div>
         <div class="image-gallery">
             <img src="https://storage.googleapis.com/guillamon-img/IMG_20241024_110518243_HDR.jpg" alt="Imagen 1" className="gallery-image" />
