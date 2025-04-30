@@ -17,6 +17,7 @@ import LogoutButton from './components/LogoutButton/LogoutButton.jsx';
 import AddVehicleForm from './components/addVehicles/addVehicles.jsx';
 import ContactPage from './pages/Contact/Contact.jsx';
 import About from './pages/About/About.jsx';
+import GalvezPage from './pages/Galvez/Galvez.jsx';
 import WhatsAppButton from './components/WhatsAppBtn/WhatsAppBtn.jsx';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/noticias/:id" element={<DetailNew />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/rincon-de-oscar-galvez" element={<GalvezPage />} />
           <Route path="/contacto" element={<ContactPage />} />
           <Route
             path="/new-post"

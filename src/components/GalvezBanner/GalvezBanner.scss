@@ -1,0 +1,32 @@
+@import "../../utils/variables.scss";
+
+.content-header-galvez{
+    text-align: center;
+    .title-galvez{
+        margin: 2rem 0rem 2rem 0rem;
+        color: $font_color-title;
+        font-family: $font-primary;
+        font-weight: 600;
+    }
+}
+.content-text-galvez{
+    width: 80%;
+    margin: 0 auto;
+    .first-text-galvez{
+        font-family: $font-primary;
+        margin-top: 2.5rem;
+        
+        .subtile-galvez{
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $font_color-title;
+            margin: 0rem 0.3rem 0.6rem 0.3rem;
+        }
+        .text-content-galvez{
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0rem 0.3rem 0.6rem 0.3rem;
+            color: $font_color;
+        }
+    }
+}
