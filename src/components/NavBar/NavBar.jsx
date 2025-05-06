@@ -41,6 +41,9 @@ const Navbar = () => {
           <Link to="/catalogo" onClick={() => setIsOpen(false)}>
             Vehículos
           </Link>
+          <Link to="/rincon-de-oscar-galvez" onClick={() => setIsOpen(false)}>
+            El Rincon de Oscar Galvez
+          </Link>
           <Link to="/noticias" onClick={() => setIsOpen(false)}>
             Noticias
           </Link>

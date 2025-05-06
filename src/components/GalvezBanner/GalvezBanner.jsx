@@ -16,7 +16,7 @@ const GalvezBanner = () => {
   };
 
   const images = [
-    "https://storage.googleapis.com/guillamon-img/Oscar%20G%C3%A1lvez%20y%20Familia%20Guillamon.jpg",
+    "https://storage.googleapis.com/guillamon-img/galvez%20y%20cupe.jpg",
     "https://storage.googleapis.com/guillamon-img/OScar-Alfredo-Galvez-2%20(1).jpg",
     "https://storage.googleapis.com/guillamon-img/galvez33.jpg",
     "https://storage.googleapis.com/guillamon-img/galvez44.jpg"
@@ -51,6 +51,34 @@ const GalvezBanner = () => {
             A lo largo de su carrera, se destacó no solo por su destreza al volante, sino también por su habilidad mecánica, su carisma y nobleza, cualidades que le ganaron el respeto y el afecto incluso de sus rivales. Se retiró del automovilismo en 1964, a los 51 años. En reconocimiento a su trayectoria, fue nombrado Ciudadano Ilustre de la Ciudad de Buenos Aires y recibió el Premio Konex en 1980 y post mortem en 1990. Poco antes de su muerte, el Autódromo de Buenos Aires fue rebautizado en su honor como "Autódromo Oscar y Juan Gálvez". Falleció en 1989, a los 76 años y fue enterrado junto a su hermano en el Cementerio de la Chacarita.
           </p>
         </div>
+        <div style={{ width: "80%", margin: "2rem auto", display: "flex", justifyContent: "center", gap: "15rem", flexWrap: "wrap" }}>
+          <img
+            src="https://storage.googleapis.com/guillamon-img/Oscar%20G%C3%A1lvez%20foto%202_page-0001.jpg"
+            alt="Oscar Gálvez 1"
+            style={{ width: "300px", height: "auto", borderRadius: "10px" }}
+          />
+          <img
+            src="https://storage.googleapis.com/guillamon-img/OSCAR-ALFREDO-AGUILUCHO-GALVEZ-640.jpg"
+            alt="Oscar Gálvez 2"
+            style={{ width: "300px", height: "auto", borderRadius: "10px" }}
+          />
+        </div>
+        <div className="first-text-galvez">
+          <p className='subtile-galvez'>Reportaje Radio Tres Arroyos</p>
+            <p className='text-content-galvez'>
+              Tenemos el honor de contar con el reportaje de Oscar Gálvez en Radio Tres Arroyos, grabado con motivo de su cumpleaños número 70. En él, Oscar comparte con emoción sus anécdotas vividas en la ciudad y expresa el cariño profundo que sentía por Tres Arroyos.
+            </p>
+            <p className='text-content-galvez'>
+              En sus palabras, revive momentos entrañables y destaca el afecto recibido durante sus visitas, dejando claro que esta ciudad y su gente ocupaban un lugar muy especial en su corazón. Un testimonio auténtico y conmovedor de una leyenda del automovilismo argentino, recordando con gratitud a una comunidad que lo abrazó como propio.
+            </p>
+        </div>
+
+        <div className="audio-player-wrapper">
+              <audio controls>
+                <source src="reportaje-radio-tres-arroyos.mp3" type="audio/mpeg" />
+                Tu navegador no admite el elemento de audio.
+              </audio>
+            </div>
 
         <div className="first-text-galvez">
           <p className='subtile-galvez'>Oscar y Flia. Guillamón</p>
@@ -67,25 +95,14 @@ const GalvezBanner = () => {
               Tu navegador no admite el elemento de audio.
             </audio>
           </div>
-        </div>
-      </div>
-      <div className="content-text-galvez">
-        <div className="first-text-galvez">
-        <p className='subtile-galvez'>Reportaje Radio Tres Arroyos</p>
-          <p className='text-content-galvez'>
-            Tenemos el honor de contar con el reportaje de Oscar Gálvez en Radio Tres Arroyos, grabado con motivo de su cumpleaños número 70. En él, Oscar comparte con emoción sus anécdotas vividas en la ciudad y expresa el cariño profundo que sentía por Tres Arroyos.
-          </p>
-          <p className='text-content-galvez'>
-            En sus palabras, revive momentos entrañables y destaca el afecto recibido durante sus visitas, dejando claro que esta ciudad y su gente ocupaban un lugar muy especial en su corazón. Un testimonio auténtico y conmovedor de una leyenda del automovilismo argentino, recordando con gratitud a una comunidad que lo abrazó como propio.
-          </p>
-        </div>
-      
-      <div className="audio-player-wrapper">
-            <audio controls>
-              <source src="reportaje-radio-tres-arroyos.mp3" type="audio/mpeg" />
-              Tu navegador no admite el elemento de audio.
-            </audio>
+          <div style={{ width: "80%", margin: "2rem auto" }}>
+            <img
+              src="https://storage.googleapis.com/guillamon-img/Oscar%20G%C3%A1lvez%20y%20Familia%20Guillamon.jpg"
+              alt="Imagen Oscar Gálvez"
+              style={{ width: "100%", height: "auto", borderRadius: "10px" }}
+            />
           </div>
+        </div>
       </div>
     </>
   );

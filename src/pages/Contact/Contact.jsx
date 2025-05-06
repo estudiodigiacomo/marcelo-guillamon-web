@@ -16,10 +16,10 @@ const ContactPage = () => {
               <p className="contact-name">Marcelo</p>
               <p className="contact-detail">
                 <a
-                href="https://wa.me/542983646897"
+                href="https://wa.me/542983610977"
                 className="number-link"
                 target="_blank"
-                rel="noopener noreferrer">+ 54 2983 646897</a></p>
+                rel="noopener noreferrer">+ 54 2983 610977</a></p>
               <p className="contact-detail">{" "}
               <a href="mailto:marceloguillamon@gmail.com">
               marceloguillamon@gmail.com
@@ -32,10 +32,10 @@ const ContactPage = () => {
               <p className="contact-name">Stefan</p>
               <p>
                 <a
-                href="https://wa.me/542983610977"
+                href="https://wa.me/542983646897"
                 className="number-link"
                 target="_blank"
-                rel="noopener noreferrer">+ 54 2983 610977</a></p>
+                rel="noopener noreferrer">+ 54 2983 646897</a></p>
             <p className="contact-detail">{" "}
               <a href="mailto:marceloguillamon@gmail.com">
               guillamon.autos@gmail.com
